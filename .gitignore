@@ -1,3 +1,6 @@
 PokerHand/PokerHand/obj/
 PokerHand/.vs/
 PokerHand/PokerHand/bin/
+PokerHand/PokerHandTests/bin/
+PokerHand/PokerHandTests/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
+PokerHand/PokerHandTests/obj/
