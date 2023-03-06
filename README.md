@@ -6,7 +6,7 @@ This application was created using Visual Studio 2022 with the .Net 6.0 framewor
 to evaluate a poker hand
 ## a pc that is able to run Visual Studio 2022 is all you need to run the application
 
-#P rojects included
+# Projects included
 1. PokerHand Project - Main project that contains the console application
 2. PokerHandTests Project - contains the unit tests for the application
 
