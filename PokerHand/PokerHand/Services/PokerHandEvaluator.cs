@@ -22,6 +22,11 @@ namespace PokerHand.Services
             new OnePairHandEvaluator()
         };
 
+        /// <summary>
+        /// Evaluates the poker hand from the list of cards provided
+        /// </summary>
+        /// <param name="cards"></param>
+        /// <returns>an integer value signifying the hand evaluated from the list of cards</returns>
         public int EvaluateHand(List<Card> cards)
         {
             var validHandEvaluators = _handEvaluators.Where(he => he.IsValidHand(cards)).ToList();
@@ -45,101 +50,39 @@ namespace PokerHand.Services
             switch (hand)
             {
                 case 1:
-                    name ="High Card";
+                    name ="One Pair";
                     break;
                 case 2:
-                    name = "One Pair";
-                    break;
-                case 3:
                     name = "Two Pair";
                     break;
-                case 4:
-                    name = "Three of a Kind";
+                case 3:
+                    name = "Three of a kind";
                     break;
-                case 5:
+                case 4:
                     name = "Straight";
                     break;
-                case 6:
+                case 5:
                     name = "Flush";
                     break;
-                case 7:
+                case 6:
                     name = "Full House";
                     break;
-                case 8:
+                case 7:
                     name = "Four of a kind";
                     break;
-                case 9:
+                case 8:
                     name = "Straight Flush";
                     break;
-                case 10:
+                case 9:
                     name = "Royal Flush";
                     break;
                 default:
-                    name = "none";
+                    name = "High Card";
                     break;
             }
 
             return name;
         }
-
-        //public static (int, string) EvaluateHand(List<Card> cards)
-        //{
-        //    if (cards.Count != 5)
-        //    {
-        //        throw new ArgumentException("Invalid number of cards");
-        //    }
-        //
-        //    var flushEvaluator = new FlushHandEvaluator();
-        //    var straightEvaluator = new StraightHandEvaluator();
-        //    var pairEvaluator = new PairHandEvaluator();
-        //
-        //    if (flushEvaluator.HasHand(cards) && straightEvaluator.HasHand(cards) && cards.Any(c => c.Rank == Rank.Ace))
-        //    {
-        //        return (10, "Royal Flush");
-        //    }
-        //
-        //    if (flushEvaluator.HasHand(cards) && straightEvaluator.HasHand(cards))
-        //    {
-        //        return (9, "Straight Flush");
-        //    }
-        //
-        //    if (pairEvaluator.HasHand(cards, 4))
-        //    {
-        //        return (8, "Four of a Kind");
-        //    }
-        //
-        //    if (pairEvaluator.HasHand(cards, 3) && pairEvaluator.HasHand(cards, 2))
-        //    {
-        //        return (7, "Full House");
-        //    }
-        //
-        //    if (flushEvaluator.HasHand(cards))
-        //    {
-        //        return (6, "Flush");
-        //    }
-        //
-        //    if (straightEvaluator.HasHand(cards))
-        //    {
-        //        return (5, "Straight");
-        //    }
-        //
-        //    if (pairEvaluator.HasHand(cards, 3))
-        //    {
-        //        return (4, "Three of a Kind");
-        //    }
-        //
-        //    if (pairEvaluator.HasHand(cards, 2) && pairEvaluator.CountPairs(cards) == 2)
-        //    {
-        //        return (3, "Two Pair");
-        //    }
-        //
-        //    if (pairEvaluator.HasHand(cards, 2))
-        //    {
-        //        return (2, "Pair");
-        //    }
-        //
-        //    return (1, "High Card");
-        //}
 
     }
 }
