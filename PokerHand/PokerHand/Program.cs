@@ -16,8 +16,9 @@ namespace PokerHand
             var evaluator = new PokerHandEvaluator();
 
             var result = evaluator.EvaluateHand(cards);
-
+            var handRepresentation = evaluator.EvaluatedHandRepresentation(result);
             Console.WriteLine("Your hand is a {0}", result);
+            Console.WriteLine("String representation of the hand is {0}", handRepresentation);
             Console.ReadLine();
         }
 
@@ -36,22 +37,75 @@ namespace PokerHand
                     throw new ArgumentException("Invalid input");
                 }
 
-                var rankChar = input[0];
-                var suitChar = input[1];
+                var rankChar = card[0];
+                var suitChar = card[1];
                 Rank rank;
-                if (!Enum.TryParse<Rank>(rankChar.ToString(), out rank))
+                switch (rankChar)
                 {
-                    throw new ArgumentException("Invalid card rank: " + rankString);
+                    case '2':
+                        rank = Rank.Two;
+                        break;
+                    case '3':
+                        rank = Rank.Three;
+                        break;
+                    case '4':
+                        rank = Rank.Four;
+                        break;
+                    case '5':
+                        rank = Rank.Five;
+                        break;
+                    case '6':
+                        rank = Rank.Six;
+                        break;
+                    case '7':
+                        rank = Rank.Seven;
+                        break;
+                    case '8':
+                        rank = Rank.Eight;
+                        break;
+                    case '9':
+                        rank = Rank.Nine;
+                        break;
+                    case 'T':
+                        rank = Rank.Ten;
+                        break;
+                    case 'J':
+                        rank = Rank.Jack;
+                        break;
+                    case 'Q':
+                        rank = Rank.Queen;
+                        break;
+                    case 'K':
+                        rank = Rank.King;
+                        break;
+                    case 'A':
+                        rank = Rank.Ace;
+                        break;
+                    default:
+                        throw new ArgumentException("Invalid card rank.");
                 }
 
-                Suit suit;
-                try
+                SuiteEnum suit;
+                switch (suitChar)
                 {
-                    suit = (Suit)Enum.Parse(typeof(Suit), suitChar.ToString(), true);
-                }
-                catch (ArgumentException)
-                {
-                    throw new ArgumentException("Invalid card suit: " + suitString);
+                    case 'C':
+                    case 'c':
+                        suit = SuiteEnum.Clubs;
+                        break;
+                    case 'D':
+                    case 'd':
+                        suit = SuiteEnum.Diamonds;
+                        break;
+                    case 'H':
+                    case 'h':
+                        suit = SuiteEnum.Hearts;
+                        break;
+                    case 'S':
+                    case 's':
+                        suit = SuiteEnum.Spades;
+                        break;
+                    default:
+                        throw new ArgumentException("Invalid suit");
                 }
 
                 cards.Add(new Card(rank, suit));

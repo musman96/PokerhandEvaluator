@@ -18,5 +18,10 @@ namespace PokerHand.Services
         {
             return 8;
         }
+
+        public override string GetHandReprentation()
+        {
+            return "Straight Flush";
+        }
     }
 }

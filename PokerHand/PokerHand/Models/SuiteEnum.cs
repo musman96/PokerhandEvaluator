@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace PokerHand.Models
 {
-    internal class SuiteEnum
+    public enum SuiteEnum
     {
+        Clubs = 0,
+        Diamonds = 1,
+        Hearts = 2,
+        Spades = 3
     }
 }

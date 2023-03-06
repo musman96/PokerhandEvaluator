@@ -18,5 +18,10 @@ namespace PokerHand.Services
         {
             return 2;
         }
+
+        public override string GetHandReprentation()
+        {
+            return "Two Pair";
+        }
     }
 }

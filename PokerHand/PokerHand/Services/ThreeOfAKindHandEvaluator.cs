@@ -18,5 +18,10 @@ namespace PokerHand.Services
         {
             return 3;
         }
+
+        public override string GetHandReprentation()
+        {
+            return "Three of a kind";
+        }
     }
 }

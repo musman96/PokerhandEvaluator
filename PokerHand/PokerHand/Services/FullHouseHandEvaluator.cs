@@ -18,5 +18,10 @@ namespace PokerHand.Services
         {
             return 6;
         }
+
+        public override string GetHandReprentation()
+        {
+            return "Full House";
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace PokerHand.Services
     {
         public abstract bool IsValidHand(List<Card> cards);
         public abstract int GetHandRank(List<Card> cards);
+        public abstract string GetHandReprentation();
     }
 }
